@@ -1,0 +1,5 @@
+module_mapping: /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/data-L1Trigger-L1THGCal/V01-07-00/L1Trigger/L1THGCal/data/panel_mapping_V11_decentralized_march20_2.txt
+elinks_unconstrained: data/links_mapping_V11_decentralized_signaldriven_0_max4.txt
+elinks_constrained: data/220712_strobbe_elinks-mapping.csv
+output: data/links_mapping_V11_decentralized_signaldriven_1_max4.txt
+capping: 4
