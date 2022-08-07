@@ -29,9 +29,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-       #  fileNames = cms.untracked.vstring('/store/mc/Phase2HLTTDRWinter20DIGI/SingleElectron_PT2to200/GEN-SIM-DIGI-RAW/PU200_110X_mcRun4_realistic_v3_ext2-v2/40000/00582F93-5A2A-5847-8162-D81EE503500F.root'),
        fileNames = cms.untracked.vstring('/store/mc/Phase2HLTTDRSummer20ReRECOMiniAOD/DoublePhoton_FlatPt-1To100/FEVT/NoPU_111X_mcRun4_realistic_T15_v1-v1/110000/001C5D05-8192-054B-827B-F1D34DFDDB96.root'),
-       #  fileNames = cms.untracked.vstring('file:/data_cms_upgrade/sauvan/HGCAL/DIGI/Phase2HLTTDRWinter20DIGI/TT_TuneCP5_14TeV-powheg-pythia8/GEN-SIM-DIGI-RAW/PU200_110X_mcRun4_realistic_v3-v2/2D0339A5-751F-3543-BA5B-456EA6E5E294.root'),
        inputCommands=cms.untracked.vstring(
            'keep *',
            'drop l1tEMTFHit2016Extras_simEmtfDigis_CSC_HLT',
@@ -71,7 +69,7 @@ process.load('L1Trigger.L1THGCalUtilities.hgcalTriggerNtuples_cff')
 # Use old geometry version Imp2 to be able to run with signal-driven elinks mapping
 from L1Trigger.L1THGCal.customTriggerGeometry import custom_geometry_V11_Imp2
 process = custom_geometry_V11_Imp2(process)
-process.hgcalTriggerGeometryESProducer.TriggerGeometry.L1TLinksMapping = cms.FileInPath('L1Trigger/L1THGCal/data/links_mapping_V11_decentralized_signaldriven_1_max5.txt')
+process.hgcalTriggerGeometryESProducer.TriggerGeometry.L1TLinksMapping = cms.FileInPath('L1Trigger/L1THGCal/data/links_mapping_V11_decentralized_signaldriven_1_max4.txt')
 
 from L1Trigger.L1THGCalUtilities.hgcalTriggerChains import HGCalTriggerChains
 import L1Trigger.L1THGCalUtilities.vfe as vfe
@@ -89,7 +87,7 @@ chains = HGCalTriggerChains()
 ## VFE
 chains.register_vfe("Floatingpoint", vfe.CreateVfe())
 ## ECON
-chains.register_concentrator("Mixedbcstcrealsig5", 
+chains.register_concentrator("Mixedbcstcrealsig4", 
                              concentrator.CreateMixedFeOptions())
 
 
@@ -108,7 +106,7 @@ chains.register_ntuple("Genclustersntuple", ntuple.CreateNtuple(ntuple_list))
 
 # Register trigger chains
 concentrator_algos = [
-        'Mixedbcstcrealsig5',
+        'Mixedbcstcrealsig4',
         ]
 backend_algos = ['Histomaxxydr015']
 ## Make cross product fo ECON and BE algos
