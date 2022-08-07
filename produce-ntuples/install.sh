@@ -10,7 +10,7 @@ cmsenv
 git cms-init
 git remote add hgctpg https://github.com/hgc-tpg/cmssw.git
 git fetch hgctpg
-git cms-merge-topic -u hgc-tpg:v3.28.11_1230
+git cms-merge-topic -u hgc-tpg:v3.29.1_1230
 scram b -j10
 
 cp $ROOT_DIR/../extract-mappings/data/links_mapping_*.txt L1Trigger/L1THGCal/data/
