@@ -16,5 +16,9 @@ scram b -j10
 cp $ROOT_DIR/../extract-mappings/data/links_mapping_*.txt L1Trigger/L1THGCal/data/
 cd L1Trigger/L1THGCalUtilities/test
 mkdir prod
+cp $ROOT_DIR/produce_*_cfg.py prod/
+cp $ROOT_DIR/crab_*.py prod/
+cp $ROOT_DIR/local.py prod/
+cd prod/
 
 
