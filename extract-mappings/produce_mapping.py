@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 import pandas as pd
-from common import rotate_to_sector0
+from common import rotate_to_sector0, uv2u0v0
 
 
 def read_module_mapping(file_name):
@@ -23,13 +23,6 @@ def module2uv(row, module_mapping):
         return module_mapping.loc[(int(row.layer), int(row.modid))]
     else:
         return pd.Series([np.nan, np.nan], index=['u', 'v'])
-
-def uv2u0v0(row):
-    u = int(row.u)
-    v = int(row.v)
-    sector,u0,v0 = rotate_to_sector0(u, v)
-    return pd.Series([u0, v0], index=['u0', 'v0'])
-
 
 
 def apply_mapping(module_mapping, df):
